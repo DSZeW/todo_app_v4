@@ -1,0 +1,93 @@
+/* === add_task.css === */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    color: #43a047;
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.retour-btn {
+    width: 40px;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+}
+
+.retour-btn:hover {
+    transform: scale(1.1);
+}
+
+.form-add-task {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-add-task input[type="text"],
+.form-add-task select,
+.form-add-task textarea {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.form-add-task textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form-add-task button,
+.footer-links a.button {
+    padding: 14px 24px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.form-add-task button:hover,
+.footer-links a.button:hover {
+    background-color: #1b5e20;
+    transform: scale(1.02);
+}
+
+.button-secondary {
+    background-color: #0277bd;
+}
+
+.button-secondary:hover {
+    background-color: #01579b;
+}
+
+.footer-links {
+    margin-top: 25px;
+    text-align: center;
+}

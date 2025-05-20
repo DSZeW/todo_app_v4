@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Ajouter une Tâche - PLaSH
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_task.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<a href="{{ next_page }}">
+    <img src="{{ url_for('static', filename='img/retour.png') }}" alt="Retour" class="retour-btn">
+</a>
+
+<h2>Ajouter une tâche</h2>
+
+<form method="POST" class="form-add-task">
+    <!-- Titre de la tâche -->
+    <input type="text" name="title" placeholder="Titre de la tâche" required><br>
+
+    <!-- Champ texte pour le prénom assigné -->
+    <input type="text" name="assigned_person_name" placeholder="Nom de la personne assignée" required><br>
+
+    <!-- Sélection catégorie -->
+    <p>Renseigner le nom de la catégorie dans laquelle la tâche sera affectée</p>
+    <select name="category" required>
+        {% for cat in categories %}
+            <option value="{{ cat[0] }}"
+                {% if selected_category_id and selected_category_id == cat[0]|string %}selected{% endif %}>
+                {{ cat[1] }}
+            </option>
+        {% endfor %}
+    </select><br>
+
+    <!-- Sélection priorité -->
+    <p>Renseigner le niveau de priorité (Faible / Moyen / Haut)</p>
+    <select name="priority" required>
+        {% for p in priorities %}
+            <option value="{{ p[0] }}">{{ p[1] }}</option>
+        {% endfor %}
+    </select><br>
+
+    <!-- Commentaire optionnel -->
+    <textarea name="comment" placeholder="Commentaire initial (optionnel)"></textarea><br>
+
+    <label for="start_datetime">Date et heure de début :</label>
+    <input type="datetime-local" name="start_datetime">
+
+    <!-- Redirection -->
+    <input type="hidden" name="next" value="{{ next_page }}">
+
+    <!-- Bouton créer -->
+    <button type="submit" class="button">Créer la tâche</button>
+</form>
+
+<!-- Bouton retour -->
+<div class="footer-links">
+    <a href="/categories" class="button button-secondary">Retour aux catégories</a>
+</div>
+
+{% endblock %}

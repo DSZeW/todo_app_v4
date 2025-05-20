@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if category_name %}
+        Tâches – {{ category_name }} - PLaSH
+    {% else %}
+        Mes Tâches - PLaSH
+    {% endif %}
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tasks.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    {% if category_name %}
+        <a href="/categories">
+            <img src="{{ url_for('static', filename='img/retour.png') }}" alt="Retour" class="retour-btn">
+        </a>
+        <h2>Tâches – Catégorie : {{ category_name }}</h2>
+    {% else %}
+        <a href="/">
+            <img src="{{ url_for('static', filename='img/retour.png') }}" alt="Retour aux catégories" class="retour-btn">
+        </a>
+        <h2>Mes Tâches</h2>
+    {% endif %}
+
+    <div class="columns">
+        {% for status_name in ['Non commencée', 'En cours', 'Terminée'] %}
+            <div class="column">
+                <h3>{{ status_name }}</h3>
+                {% for task in tasks_by_status[status_name] %}
+                    <div class="task-card 
+                        {% if task[4] == 'Basse' %}
+                            priority-low
+                        {% elif task[4] == 'Moyenne' %}
+                            priority-medium
+                        {% elif task[4] == 'Haute' %}
+                            priority-high
+                        {% endif %}">
+
+                        <strong>{{ task[1] }}</strong><br>
+
+                        <!-- 📅 Date de création -->
+                        <small style="color: #555; font-size: 0.85em;">
+                          Créé le : {{ task[6]|datetimeformat }}
+                        </small><br>
+
+                        Catégorie : {{ task[3] }}<br>
+
+                        Assignée à : {{ task[7] if task[7] else '—' }}<br>
+
+                        Débute le : {{ task[8]|datetimeformat if task[8] else 'Non précisée' }}<br>
+
+                        {% if task[0] in comments %}
+                            <em>Commentaires :</em>
+                            <ul class="comments">
+                                {% for com in comments[task[0]] %}
+                                    <li>{{ com }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {% if status_name != 'Terminée' %}
+                            <form method="POST" action="/comment/{{ task[0] }}?next={{ request.path }}" class="comment-form">
+                                <input type="text" name="comment" placeholder="Ajouter un commentaire" required>
+                                <button type="submit">Envoyer</button>
+                            </form>
+                        {% endif %}
+
+                        <!-- Actions selon le statut -->
+                        {% if status_name == 'Non commencée' %}
+                            <a href="/start/{{ task[0] }}?next={{ request.path }}">
+                                <img src="{{ url_for('static', filename='img/commencer.png') }}" alt="Commencer" class="task-icon">
+                            </a>
+                            <a href="/edit/{{ task[0] }}?next={{ request.path }}">
+                                <img src="{{ url_for('static', filename='img/modifier.png') }}" alt="Modifier" class="task-icon">
+                            </a>
+                            <a href="/delete/{{ task[0] }}?next={{ request.path }}">
+                                <img src="{{ url_for('static', filename='img/supprimer.png') }}" alt="Supprimer" class="task-icon">
+                            </a>
+
+                        {% elif status_name == 'En cours' %}
+                            <a href="/complete/{{ task[0] }}?next={{ request.path }}">
+                                <img src="{{ url_for('static', filename='img/completer.png') }}" alt="Compléter" class="task-icon">
+                            </a>
+                            <a href="/edit/{{ task[0] }}?next={{ request.path }}">
+                                <img src="{{ url_for('static', filename='img/modifier.png') }}" alt="Modifier" class="task-icon">
+                            </a>
+                            <a href="/delete/{{ task[0] }}?next={{ request.path }}">
+                                <img src="{{ url_for('static', filename='img/supprimer.png') }}" alt="Supprimer" class="task-icon">
+                            </a>
+
+                        {% elif status_name == 'Terminée' %}
+                            <span style="color: green; font-weight: bold;">(Terminée)</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <br>
+
+    <div class="footer-links">
+        {% if category_name %}
+            <a href="/add?category_id={{ current_category_id }}&next={{ request.path }}" class="button">Ajouter une nouvelle tâche</a>
+        {% else %}
+            <a href="/add?next={{ request.path }}" class="button">Ajouter une nouvelle tâche</a>
+        {% endif %}
+    </div>
+
+{% endblock %}

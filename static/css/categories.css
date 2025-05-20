@@ -1,0 +1,104 @@
+
+/* ✅ Liste des catégories sous forme de boutons verts centrés */
+.category-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.category-list a {
+    display: block;
+    padding: 12px 258px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-list a:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* ✅ Formulaire d'ajout */
+.add-category-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-category-form input[type="text"] {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.add-category-form button {
+    padding: 10px 18px;
+    background-color: #43a047;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.add-category-form button:hover {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+}
+
+/* ✅ Formulaire de suppression */
+.delete-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.delete-form select {
+    padding: 10px 14px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.delete-form select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.3);
+}
+
+.delete-form button {
+    padding: 10px 18px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-form button:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}

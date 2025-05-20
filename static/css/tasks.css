@@ -1,0 +1,71 @@
+
+.column h3 {
+    text-align: center;
+    color: #1e293b;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+/* Colonnes */
+.columns {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Post-it priorités */
+.task-card {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.priority-low {
+    background-color: #fff9c4;
+    border: 1px solid #fdd835;
+}
+
+.priority-medium {
+    background-color: #ffe0b2;
+    border: 1px solid #ffa726;
+}
+
+.priority-high {
+    background-color: #ffcdd2;
+    border: 1px solid #ef5350;
+}
+
+/* Titre tâche */
+.task-card strong {
+    font-size: 1.1em;
+    color: #1e293b;
+}
+
+.task-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.task-icon:hover {
+    transform: scale(1.1);
+}

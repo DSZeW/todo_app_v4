@@ -1,0 +1,59 @@
+
+/* ✅ Formulaire modifier tâche */
+.form-edit-task {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Champs input, select */
+.form-edit-task input[type="text"],
+.form-edit-task select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Labels du formulaire */
+.form-edit-task label {
+    font-weight: bold;
+    color: #444;
+    margin-top: 5px;
+}
+
+/* Boutons */
+.button {
+    padding: 12px 20px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #1b5e20;
+    transform: scale(1.02);
+}
+
+/* Bouton secondaire bleu */
+.button-secondary {
+    background-color: #0277bd;
+}
+
+.button-secondary:hover {
+    background-color: #01579b;
+}

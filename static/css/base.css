@@ -1,0 +1,110 @@
+
+/* 🌍 Corps de page */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 220px;
+    background-attachment: fixed;
+}
+
+/* ✅ Bannière PLaSH haut */
+.header-banner {
+    background-image: url('img/Nom.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 300px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+/* ✅ Conteneur principal */
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin-top: 0;
+    padding: 20px;
+    width: 100%;
+    max-width: 1600px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres principaux */
+h2 {
+    text-align: center;
+    color: #43a047;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons généraux */
+button,
+a.button {
+    padding: 10px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+a.button:hover {
+    background-color: #218838;
+    transform: scale(1.03);
+}
+
+/* Boutons secondaires */
+.button-secondary {
+    background-color: #17a2b8;
+}
+
+.button-secondary:hover {
+    background-color: #138496;
+}
+
+/* Liens en bas */
+.footer-links {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.footer-links a {
+    margin: 0 8px;
+    text-decoration: none;
+}
+
+.footer-links a.button {
+    margin: 0 5px;
+    font-size: 14px;
+    padding: 8px 14px;
+}
+
+/* Icône retour */
+.retour-btn {
+    width: 40px;
+    height: auto;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+}
+
+.retour-btn:hover {
+    transform: scale(1.1);
+}

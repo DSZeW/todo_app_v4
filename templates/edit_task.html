@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Modifier une Tâche - PLaSH{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_task.css') }}">
+{% endblock %}
+
+{% block content %}
+<a href="{{ next_page }}">
+    <img src="{{ url_for('static', filename='img/retour.png') }}" alt="Retour" class="retour-btn">
+</a>
+
+<h2>Modifier la tâche</h2>
+
+<form method="POST">
+    <label for="title">Titre :</label>
+    <input type="text" name="title" value="{{ task[0] }}" required>
+
+    <label for="category">Catégorie :</label>
+    <select name="category" required>
+        {% for cat in categories %}
+            <option value="{{ cat[0] }}" {% if cat[0] == task[1] %}selected{% endif %}>{{ cat[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="assigned_person_name">Assignée à :</label>
+    <input type="text" name="assigned_person_name" placeholder="Nom de la personne" value="{{ assigned_person_name or '' }}">
+
+    <label for="start_datetime">Date et heure de début :</label>
+    <input type="datetime-local" name="start_datetime" value="{{ start_datetime_value or '' }}">
+
+    <label for="priority">Priorité :</label>
+    <select name="priority" required>
+        {% for p in priorities %}
+            <option value="{{ p[0] }}" {% if p[0] == task[2] %}selected{% endif %}>{{ p[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="status">État :</label>
+    <select name="status" required>
+        {% for s in statuses %}
+            <option value="{{ s[0] }}" {% if s[0] == task[3] %}selected{% endif %}>{{ s[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="hidden" name="next" value="{{ next_page }}">
+
+    <button type="submit" class="button">Enregistrer</button>
+</form>
+
+<div class="footer-links">
+    <a href="{{ next_page }}" class="button button-secondary">Annuler</a>
+</div>
+{% endblock %}

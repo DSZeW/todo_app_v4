@@ -1,0 +1,81 @@
+
+/* ✅ Barre de navigation de type hamburger */
+.navbar {
+    background-color: #28a745;
+    padding: 10px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Icône hamburger */
+.navbar-logo {
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    z-index: 2;
+}
+
+/* Liens */
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.navbar-links li a:hover {
+    color: #c8f7dc;
+}
+
+/* Responsive : cacher les liens par défaut */
+@media screen and (max-width: 768px) {
+    .navbar-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #28a745;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navbar-title {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.nav-icon {
+    height: 28px;
+    width: auto;
+    transition: transform 0.2s ease;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+}
+
+.nav-icon:hover {
+    transform: scale(1.1);
+}

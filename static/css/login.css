@@ -1,0 +1,36 @@
+
+/* 🔘 Boutons principaux */
+.auth-button {
+    padding: 12px 24px;
+    background-color: #fdd835;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.auth-button:hover {
+    background-color: #fbc02d;
+    transform: scale(1.05);
+}
+
+/* 🔗 Lien styled comme bouton */
+.auth-link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #43a047;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.auth-link-button:hover {
+    background-color: #43a047;
+    transform: scale(1.05);
+}
